@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*----------------------------------------------*\
     VARIABLES
 	=========
@@ -27,57 +28,39 @@
  * ANCHOR Responsive Text Sizes
 ------------------------------------------------*/
 :root {
-  /* Major Third (factor: 1.25)*/
-  --size-010: .134rem;
-  --size-020: .168rem;
-  --size-030: .21rem;
-  --size-040: .262rem;
-  --size-050: .328rem;
-  --size-060: .41rem;
-  --size-070: .512rem;
-  --size-080: .64rem;
-  --size-090: .8rem;
-  --size-100: 1rem; /* <-- Default */
-  --size-200: 1.25rem;
-  --size-300: 1.563rem;
-  --size-400: 1.953rem;
-  --size-500: 2.441rem;
-  --size-600: 3.052rem;
-  --size-700: 3.815rem;
-  --size-800: 4.768rem;
-  --size-900: 5.96rem;
-  --size-1000: 7.451rem;
-  --size-1100: 9.313rem;
-  --size-1200: 11.642rem;
-}
-@media screen and (min-width: 27rem) {
-  :root {
-    font-size: 1.1rem;
-  }
-}
-@media screen and (min-width: 36rem) {
-  :root {
-    font-size: 1.2rem;
-  }
+  /* Perfect Fourth (factor: 1.333) — big gap between small and large */
+  --size-010: .178rem;
+  --size-020: .237rem;
+  --size-030: .316rem;
+  --size-040: .422rem;
+  --size-050: .563rem;
+  --size-060: .75rem;
+  --size-070: 1rem;
+  --size-080: 1.333rem;
+  --size-090: 1.777rem;
+  --size-100: 2.37rem;
+  --size-200: 3.157rem;
+  --size-300: 4.209rem;
+  --size-400: 5.61rem;
+  --size-500: 7.478rem;
+  --size-600: 9.969rem;
+  --size-700: 13.288rem;
+  --size-800: 17.713rem;
+  --size-900: 23.612rem;
+  --size-1000: 31.475rem;
+  --size-1100: 41.956rem;
+  --size-1200: 55.927rem;
+  /* Base font size: 18px on small screens, up to 22px on large */
+  font-size: 1.125rem;
 }
 @media screen and (min-width: 48rem) {
   :root {
-    font-size: 1.3rem;
-  }
-}
-@media screen and (min-width: 64rem) {
-  :root {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
   }
 }
 @media screen and (min-width: 77rem) {
   :root {
-    font-size: 1.5rem;
-  }
-}
-@media screen and (min-width: 94rem) {
-  :root {
-    font-size: 1.6rem;
+    font-size: 1.375rem;
   }
 }
 
@@ -86,15 +69,23 @@
  * ANCHOR Fonts
 ------------------------------------------------*/
 :root {
-  /* TT Modernoir loads from Typekit (nuxt.config.ts), the rest from public/fonts (_fonts.scss) */
-  --font-display: "Albuquerque", sans-serif;
-  --font-modernoir: "tt-modernoir", sans-serif;
-  --display-word-spacing: 0;
+  /* Job Clarendon (variable) loads from public/fonts (_fonts.scss) */
+  --font-clarendon: "Job Clarendon", "Clarendon", Georgia, "Times New Roman", serif;
+  /* Acme Gothic loads from Typekit (nuxt.config.ts) */
+  --font-acme: "acme-gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-acme-compressed: "acme-gothic-compressed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-acme-condensed: "acme-gothic-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-acme-wide: "acme-gothic-wide", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-acme-extrawide: "acme-gothic-extrawide", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: var(--font-clarendon);
+  --font-body: var(--font-acme);
+  /* Job Clarendon width axis (wdth 25–50): pick per element with font-stretch */
+  --stretch-skyline: 25%;
+  --stretch-compressed: 31%;
+  --stretch-extra-condensed: 37.5%;
+  --stretch-condensed: 50%;
   --display-line-height: 0.9;
-  --font-sans: "Herbus", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-herbus: "Herbus", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-platform: "Platform", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --herbus-tracking: 0.05em;
+  --display-tracking: 0.02em;
 }
 
 /*
@@ -102,12 +93,14 @@
  * ANCHOR Colors
 ------------------------------------------------*/
 :root {
-  --black: #000000;
+  --paper: #F3EAD9; /* warm butcher-paper cream */
+  --paper-deep: #E9DCC3; /* deeper cream for wells and slots */
+  --ink: #221310; /* charred near-black brown */
+  --red: #9E1B2C; /* butcher red, matches the rare doneness band */
+  --smoke: #8A7B6E; /* muted taupe for dimmed/secondary */
+  --gold: #D9A03F; /* highlight */
   --white: #FFFFFF;
-  --red: #85000F;
-  --orange: #FF3500;
-  --brown: #422523;
-  --silver: #898686;
+  --black: #000000;
 }
 
 /*
@@ -115,23 +108,18 @@
  * ANCHOR Responsive Margins
 ------------------------------------------------*/
 :root {
-  --margin-outside: var(--size-100);
-  --margin-vertical-large: var(--size-600);
-  --margin-vertical-small: var(--size-100);
+  --margin-outside: var(--size-070);
+  --margin-vertical-large: var(--size-200);
+  --margin-vertical-small: var(--size-070);
 }
 @media screen and (min-width: 48rem) {
   :root {
-    --margin-outside: var(--size-400);
+    --margin-outside: var(--size-100);
   }
 }
 @media screen and (min-width: 64rem) {
   :root {
-    --margin-outside: var(--size-600);
-  }
-}
-@media screen and (min-width: 77rem) {
-  :root {
-    --margin-outside: var(--size-700);
+    --margin-outside: var(--size-200);
   }
 }
 :root {

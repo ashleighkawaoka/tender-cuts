@@ -1,41 +1,60 @@
 @use "../components" as c;
 
-// One tile everywhere: homepage list and slots, /browse, detail lists.
+// One tile everywhere: /cuts, /methods, detail lists. Matches the homepage:
+// image on white, name in a black bar below.
 .tile {
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-050);
+	gap: 0;
 	width: 100%;
 	padding: 0;
 	background: none;
 	color: var(--ink);
 	text-align: left;
 	text-decoration: none;
+	cursor: pointer;
 
 	&__image-wrap {
-		display: block;
-		aspect-ratio: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		// Fixed height so every card is identical regardless of column width.
+		height: calc(var(--size-300) + var(--size-200));
 		overflow: hidden;
-		background: var(--paper-deep);
+		background: var(--white);
 	}
 
 	&__image {
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
+		object-fit: contain;
 	}
 
 	&__name {
-		font-family: var(--font-acme-condensed);
-		font-weight: 700;
-		font-size: var(--size-070);
-		line-height: 1.1;
+		display: block;
+		// Fixed single-line height so every card is identical. Long names
+		// truncate with an ellipsis instead of wrapping or growing.
+		height: calc(var(--size-080) * var(--display-line-height) + var(--size-010) * 2);
+		overflow: hidden;
+		padding: var(--size-010) var(--size-040);
+		background: var(--black);
+		color: var(--white);
+		font-family: var(--font-display);
+		font-stretch: var(--stretch-compressed);
+		font-weight: 900;
+		font-size: var(--size-080);
+		line-height: var(--display-line-height);
 		text-transform: uppercase;
+		text-align: center;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
 
 	&:hover,
 	&:focus-visible {
-		color: var(--red);
+		.tile__name {
+			background: var(--red);
+		}
 	}
 
 	&[draggable="true"] {
@@ -46,8 +65,11 @@
 	&--dimmed,
 	&--dimmed:hover {
 		opacity: 0.3;
-		color: var(--ink);
 		cursor: default;
 		pointer-events: none;
+
+		.tile__name {
+			background: var(--black);
+		}
 	}
 }

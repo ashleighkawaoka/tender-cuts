@@ -14,7 +14,7 @@
 
 	&__name {
 		font-family: var(--font-display);
-		font-stretch: var(--stretch-skyline);
+		font-stretch: var(--stretch-compressed);
 		font-weight: 900;
 		font-size: var(--size-200);
 		line-height: var(--display-line-height);
@@ -49,7 +49,7 @@
 	&__section-heading {
 		font-family: var(--font-display);
 		font-stretch: var(--stretch-compressed);
-		font-weight: 800;
+		font-weight: 900;
 		font-size: var(--size-090);
 		line-height: var(--display-line-height);
 		text-transform: uppercase;
@@ -127,9 +127,11 @@
 	}
 
 	&__subgroup-heading {
-		font-family: var(--font-acme-condensed);
-		font-weight: 700;
-		font-size: var(--size-070);
+		font-family: var(--font-display);
+		font-stretch: var(--stretch-compressed);
+		font-weight: 900;
+		font-size: var(--size-080);
+		line-height: var(--display-line-height);
 		text-transform: uppercase;
 		margin-bottom: var(--size-050);
 	}

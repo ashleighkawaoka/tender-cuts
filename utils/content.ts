@@ -1,3 +1,5 @@
+import type { SanityImageSource } from '@sanity/image-url'
+
 export interface Animal {
   id: string
   name: string
@@ -22,10 +24,10 @@ export interface Cut {
   name: string
   animalId: string
   sortOrder: number
-  image: string
+  image: SanityImageSource | null
   fatPercent: number
   asSold: string
-  fatImage: string
+  fatImage: SanityImageSource | null
   usdaSafeF: number
   scaleMaxF: number | null
   similarCutIds: string[]
@@ -44,7 +46,7 @@ export interface Method {
   id: string
   name: string
   sortOrder: number
-  image: string
+  image: SanityImageSource | null
   heat: 'Dry' | 'Wet' | 'Combination'
   pace: 'Fast and hot' | 'Low and slow' | 'Either'
   equipment: string[]

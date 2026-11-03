@@ -12,5 +12,6 @@ useHead({
     <main id="main" class="site__main">
       <NuxtPage />
     </main>
+    <AppFooter />
   </div>
 </template>

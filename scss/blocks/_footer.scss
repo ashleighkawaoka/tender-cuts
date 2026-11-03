@@ -1,0 +1,21 @@
+@use "../components" as c;
+
+.footer {
+	display: flex;
+	justify-content: center;
+	// Small top/bottom margin, black border-bottom, a little space underneath.
+	padding: var(--size-040) var(--gutter);
+	border-bottom: 2px solid var(--black);
+	margin-bottom: var(--size-040);
+
+	&__logo {
+		display: block;
+		text-decoration: none;
+	}
+
+	&__logo-image {
+		display: block;
+		width: auto;
+		height: var(--size-200);
+	}
+}

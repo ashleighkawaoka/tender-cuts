@@ -1,100 +1,217 @@
 @use "../components" as c;
 
 .game {
-	&__slots {
+	&__columns {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: var(--size-070);
-		max-width: 40rem;
+		gap: var(--size-100);
+		max-width: 64rem;
 		margin-inline: auto;
-		padding: var(--size-070) var(--gutter) 0;
+		padding: var(--size-100) var(--gutter);
+	}
 
-		@media screen and (min-width: c.$medium) {
-			gap: var(--size-100);
+	&__column {
+		min-width: 0;
+	}
+
+	// Border-top bar: the column label, with the clear × at the right once set.
+	&__bar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		min-height: var(--size-100);
+		border-top: var(--size-050) solid var(--black);
+		padding-top: var(--size-030);
+	}
+
+	&__bar-label {
+		font-family: var(--font-clarendon);
+		font-weight: 400;
+		font-size: var(--size-090);
+		line-height: 1.1;
+		text-transform: none;
+		color: var(--ink);
+	}
+
+	&__clear {
+		padding: 0;
+		font-size: var(--size-080);
+		line-height: 1;
+		color: var(--ink);
+
+		&:hover {
+			color: var(--red);
 		}
 	}
 
-	// The zone under the slots: chips, view toggle, and the type selector
-	&__zone {
-		margin-top: var(--size-100);
-		padding: var(--size-100) var(--gutter) var(--size-200);
-		background: var(--paper-deep);
+	// The selected item's image, with its name in a bar styled exactly
+	// like the menu options below.
+	&__figure {
+		display: block;
+		margin: var(--size-060) 0;
+		text-decoration: none;
+	}
+
+	&__image {
+		width: 100%;
+		aspect-ratio: 1;
+		object-fit: contain;
+	}
+
+	&__figure-name {
+		display: block;
+		padding: var(--size-030) var(--size-040);
+		background: var(--black);
+		color: var(--white);
+		font-family: var(--font-display);
+		font-stretch: var(--stretch-compressed);
+		font-weight: 900;
+		font-size: var(--size-080);
+		line-height: var(--display-line-height);
+		text-transform: uppercase;
 		text-align: center;
+
+		@media screen and (min-width: c.$small) {
+			font-size: var(--size-100);
+		}
+		@media screen and (min-width: c.$medium) {
+			font-size: var(--size-200);
+		}
+		@media screen and (min-width: c.$large) {
+			font-size: var(--size-300);
+		}
 	}
 
-	&__chips {
-		margin-bottom: var(--size-100);
+	// Vertical stack of option buttons: filled bars with the word on top.
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--size-020);
+		list-style: none;
+		margin: 0;
+		padding: 0;
 	}
 
-	&__chips-heading {
+	&__option {
+		display: block;
+		width: 100%;
+		padding: var(--size-030) var(--size-040);
+		background: var(--black);
+		color: var(--white);
 		font-family: var(--font-display);
-		font-stretch: var(--stretch-skyline);
+		font-stretch: var(--stretch-compressed);
 		font-weight: 900;
-		font-size: var(--size-100);
+		// Biggest var size that keeps long single words ("(tenderloin)",
+		// "Porterhouse") inside half-width columns at each breakpoint.
+		font-size: var(--size-080);
 		line-height: var(--display-line-height);
 		text-transform: uppercase;
-		margin-bottom: var(--size-060);
+		text-align: center;
+
+		@media screen and (min-width: c.$small) {
+			font-size: var(--size-100);
+		}
+		@media screen and (min-width: c.$medium) {
+			font-size: var(--size-200);
+		}
+		@media screen and (min-width: c.$large) {
+			font-size: var(--size-300);
+		}
+
+		&:hover,
+		&:focus-visible {
+			background: var(--red);
+		}
+
+		// Dimmed options are locked: grey bar, darker grey text, no interaction.
+		&--dimmed,
+		&--dimmed:hover {
+			background: #D9D2C4;
+			color: #8A8075;
+			cursor: default;
+			pointer-events: none;
+		}
 	}
 
-	&__chips-list {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: var(--size-050);
-	}
-
-	&__toggle {
-		margin-bottom: var(--size-100);
-	}
-
-	&__group {
-		margin-bottom: var(--size-080);
-	}
-
-	&__group-heading {
-		font-family: var(--font-display);
-		font-stretch: var(--stretch-skyline);
-		font-weight: 900;
-		font-size: var(--size-090);
-		line-height: var(--display-line-height);
-		text-transform: uppercase;
-		margin-bottom: var(--size-050);
-	}
-
-	// Type-only buttons: no images until one is chosen
-	&__words {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: var(--size-050) var(--size-080);
-	}
-
-	&__word {
-		padding: var(--size-020) var(--size-040);
-		font-family: var(--font-display);
-		font-stretch: var(--stretch-condensed);
-		font-weight: 700;
+	// "See more" expands the column to show every option.
+	&__more {
+		display: block;
+		width: 100%;
+		margin-top: var(--size-040);
+		padding: var(--size-020) 0;
+		border-bottom: 2px solid var(--ink);
+		color: var(--ink);
+		font-family: var(--font-clarendon);
+		font-weight: 400;
 		font-size: var(--size-080);
 		line-height: 1.1;
-		text-transform: uppercase;
-		color: var(--ink);
+		text-align: center;
 
 		&:hover,
 		&:focus-visible {
 			color: var(--red);
+			border-bottom-color: var(--red);
+		}
+	}
+
+	// Red panel: what the method produces.
+	&__produces {
+		background: var(--red);
+		padding: var(--size-100) var(--gutter) var(--size-200);
+	}
+
+	&__produces-heading {
+		font-family: var(--font-clarendon);
+		font-weight: 400;
+		font-size: var(--size-090);
+		line-height: 1.1;
+		text-transform: none;
+		color: var(--white);
+		text-align: left;
+		padding-bottom: var(--size-080);
+		border-bottom: 1px solid var(--white);
+		margin-bottom: var(--size-100);
+	}
+
+	&__produces-list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		gap: var(--size-050);
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	// Tags on the red panel: black on orange rectangles, sized like the
+	// menu options, Job Clarendon medium caps.
+	&__produces .chip {
+		padding: var(--size-030) var(--size-040);
+		border: none;
+		border-radius: 0;
+		background: var(--orange);
+		color: var(--black);
+		font-family: var(--font-clarendon);
+		font-stretch: normal;
+		font-weight: 500;
+		font-size: var(--size-080);
+		line-height: var(--display-line-height);
+		text-transform: uppercase;
+
+		@media screen and (min-width: c.$small) {
+			font-size: var(--size-100);
+		}
+		@media screen and (min-width: c.$medium) {
+			font-size: var(--size-200);
+		}
+		@media screen and (min-width: c.$large) {
+			font-size: var(--size-300);
 		}
 
-		&[draggable="true"] {
-			cursor: grab;
-		}
-
-		// Dimmed words are locked: visible but no drag, tap, focus, or hover.
-		&--dimmed,
-		&--dimmed:hover {
-			opacity: 0.3;
-			color: var(--ink);
-			cursor: default;
-			pointer-events: none;
+		&:hover,
+		&:focus-visible {
+			background: var(--black);
+			color: var(--orange);
 		}
 	}
 }

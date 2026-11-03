@@ -1,42 +1,39 @@
 @use "../components" as c;
 
 .header {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: baseline;
-	justify-content: space-between;
-	gap: var(--size-060) var(--size-080);
-	padding: var(--size-070) var(--gutter);
+	// No top padding, extends edge to edge
+	padding: 0;
+	margin-bottom: var(--size-200);
 
-	&__logo {
-		display: block;
-		text-decoration: none;
-	}
-
-	&__logo-image {
-		display: block;
-		width: auto;
-		height: var(--size-090);
-	}
-
+	// Links span the top, each with a border-bottom, no background.
 	&__nav {
 		display: flex;
-		gap: var(--size-080);
+		flex-wrap: wrap;
+		gap: 0;
 	}
 
 	&__link {
+		flex: 1;
+		padding: var(--size-020) 0;
+		border-bottom: 2px solid var(--ink);
 		font-family: var(--font-display);
 		font-stretch: var(--stretch-condensed);
 		font-weight: 400;
 		font-size: var(--size-070);
+		text-align: center;
 		text-decoration: none;
 
 		&:hover {
-			color: var(--red);
+			background: var(--black);
+			border-bottom-color: transparent;
+			color: var(--white);
 		}
 
+		// On the page: black button, white text, no border.
 		&.router-link-active {
-			text-decoration: underline;
+			background: var(--black);
+			border-bottom-color: transparent;
+			color: var(--white);
 		}
 	}
 }

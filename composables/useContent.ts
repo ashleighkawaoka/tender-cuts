@@ -8,7 +8,7 @@ const CONTENT_QUERY = groq`{
   },
   "cuts": *[_type == "cut"] {
     "id": id, name, "animalId": animal->id, sortOrder,
-    "image": cutImage, fatPercent, asSold, fatImage, scaleMaxF,
+    "image": cutImage, fatPercent, asSold, "fatImage": fatImage, scaleMaxF,
     "similarCutIds": similarCuts[]->id,
     cutType, ground,
     "doneness": doneness[] | order(order asc) {order, stop, startF, color},

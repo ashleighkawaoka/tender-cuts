@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { getCut, getAnimal, methodsForCut } = await useContent()
+const { urlFor } = useImageUrl()
 
 const route = useRoute()
 const cut = computed(() => getCut(route.params.id as string))
@@ -16,6 +17,9 @@ const similarCuts = computed(() =>
     .filter((c): c is NonNullable<typeof c> => c !== undefined),
 )
 
+const imageSrc = computed(() => urlFor(cut.value?.image)?.ignoreImageParams().url() ?? '')
+const fatImageSrc = computed(() => urlFor(cut.value?.fatImage)?.ignoreImageParams().url() ?? '')
+
 useHead({ title: computed(() => cut.value?.name) })
 </script>
 
@@ -26,15 +30,16 @@ useHead({ title: computed(() => cut.value?.name) })
         <h1 class="detail__name">{{ cut.name }}</h1>
         <p v-if="animal" class="detail__animal">{{ animal.name }}</p>
       </div>
-      <img class="detail__image" :src="`/images/${cut.image}`" :alt="cut.name" />
+      <img v-if="imageSrc" class="detail__image" :src="imageSrc" :alt="cut.name" />
     </header>
 
     <section class="detail__section detail__fat" aria-label="Fat">
       <h2 class="detail__section-heading">Fat</h2>
       <p class="detail__fat-value">{{ cut.fatPercent }}%</p>
       <img
+        v-if="fatImageSrc"
         class="detail__fat-image"
-        :src="`/images/${cut.fatImage}`"
+        :src="fatImageSrc"
         :alt="`${cut.name} fat ${cut.fatPercent}%`"
       />
     </section>

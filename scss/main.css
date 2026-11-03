@@ -173,63 +173,19 @@ input, textarea {
 
 	@package tender-cuts
 
+	Job Clarendon (testing) — one variable font covers
+	every width and weight:
+	  wdth 25 = Skyline, ~31 = Compressed, ~37.5 = Extra Condensed, 50 = Condensed
+	  wght 1 = Hairline … 400 = Regular … 900 = Black
+	Files live in public/fonts. Replace with licensed
+	versions before launch.
+
 \*----------------------------------------------*/
-/* Platform, files live in public/fonts */
 @font-face {
-  font-family: "Platform";
-  src: url("/fonts/Platform-Hairline.otf") format("opentype");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Platform";
-  src: url("/fonts/Platform-Regular.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Platform";
-  src: url("/fonts/Platform-Medium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Platform";
-  src: url("/fonts/Platform-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-/* Albuquerque (licensed) */
-@font-face {
-  font-family: "Albuquerque";
-  src: url("/fonts/Albuquerque-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-/* Herbus (trial) — replace with a licensed version before launch */
-@font-face {
-  font-family: "Herbus";
-  src: url("/fonts/TRIAL_OTT_Herbus-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Herbus";
-  src: url("/fonts/TRIAL_OTT_Herbus-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Herbus";
-  src: url("/fonts/TRIAL_OTT_Herbus-Bold.ttf") format("truetype");
-  font-weight: 700;
+  font-family: "Job Clarendon";
+  src: url("/fonts/JobClarendonVariable[wdth,wght]-Testing.ttf") format("truetype-variations");
+  font-weight: 1 900;
+  font-stretch: 25% 50%;
   font-style: normal;
   font-display: swap;
 }
@@ -262,57 +218,39 @@ input, textarea {
  * ANCHOR Responsive Text Sizes
 ------------------------------------------------*/
 :root {
-  /* Major Third (factor: 1.25)*/
-  --size-010: .134rem;
-  --size-020: .168rem;
-  --size-030: .21rem;
-  --size-040: .262rem;
-  --size-050: .328rem;
-  --size-060: .41rem;
-  --size-070: .512rem;
-  --size-080: .64rem;
-  --size-090: .8rem;
-  --size-100: 1rem; /* <-- Default */
-  --size-200: 1.25rem;
-  --size-300: 1.563rem;
-  --size-400: 1.953rem;
-  --size-500: 2.441rem;
-  --size-600: 3.052rem;
-  --size-700: 3.815rem;
-  --size-800: 4.768rem;
-  --size-900: 5.96rem;
-  --size-1000: 7.451rem;
-  --size-1100: 9.313rem;
-  --size-1200: 11.642rem;
-}
-@media screen and (min-width: 27rem) {
-  :root {
-    font-size: 1.1rem;
-  }
-}
-@media screen and (min-width: 36rem) {
-  :root {
-    font-size: 1.2rem;
-  }
+  /* Perfect Fourth (factor: 1.333) — big gap between small and large */
+  --size-010: .178rem;
+  --size-020: .237rem;
+  --size-030: .316rem;
+  --size-040: .422rem;
+  --size-050: .563rem;
+  --size-060: .75rem;
+  --size-070: 1rem;
+  --size-080: 1.333rem;
+  --size-090: 1.777rem;
+  --size-100: 2.37rem;
+  --size-200: 3.157rem;
+  --size-300: 4.209rem;
+  --size-400: 5.61rem;
+  --size-500: 7.478rem;
+  --size-600: 9.969rem;
+  --size-700: 13.288rem;
+  --size-800: 17.713rem;
+  --size-900: 23.612rem;
+  --size-1000: 31.475rem;
+  --size-1100: 41.956rem;
+  --size-1200: 55.927rem;
+  /* Base font size: 18px on small screens, up to 22px on large */
+  font-size: 1.125rem;
 }
 @media screen and (min-width: 48rem) {
   :root {
-    font-size: 1.3rem;
-  }
-}
-@media screen and (min-width: 64rem) {
-  :root {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
   }
 }
 @media screen and (min-width: 77rem) {
   :root {
-    font-size: 1.5rem;
-  }
-}
-@media screen and (min-width: 94rem) {
-  :root {
-    font-size: 1.6rem;
+    font-size: 1.375rem;
   }
 }
 
@@ -321,15 +259,23 @@ input, textarea {
  * ANCHOR Fonts
 ------------------------------------------------*/
 :root {
-  /* TT Modernoir loads from Typekit (nuxt.config.ts), the rest from public/fonts (_fonts.scss) */
-  --font-display: "Albuquerque", sans-serif;
-  --font-modernoir: "tt-modernoir", sans-serif;
-  --display-word-spacing: 0;
+  /* Job Clarendon (variable) loads from public/fonts (_fonts.scss) */
+  --font-clarendon: "Job Clarendon", "Clarendon", Georgia, "Times New Roman", serif;
+  /* Acme Gothic loads from Typekit (nuxt.config.ts) */
+  --font-acme: "acme-gothic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-acme-compressed: "acme-gothic-compressed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-acme-condensed: "acme-gothic-condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-acme-wide: "acme-gothic-wide", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-acme-extrawide: "acme-gothic-extrawide", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: var(--font-clarendon);
+  --font-body: var(--font-acme);
+  /* Job Clarendon width axis (wdth 25–50): pick per element with font-stretch */
+  --stretch-skyline: 25%;
+  --stretch-compressed: 31%;
+  --stretch-extra-condensed: 37.5%;
+  --stretch-condensed: 50%;
   --display-line-height: 0.9;
-  --font-sans: "Herbus", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-herbus: "Herbus", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-platform: "Platform", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --herbus-tracking: 0.05em;
+  --display-tracking: 0.02em;
 }
 
 /*
@@ -337,12 +283,14 @@ input, textarea {
  * ANCHOR Colors
 ------------------------------------------------*/
 :root {
-  --black: #000000;
+  --paper: #F3EAD9; /* warm butcher-paper cream */
+  --paper-deep: #E9DCC3; /* deeper cream for wells and slots */
+  --ink: #221310; /* charred near-black brown */
+  --red: #9E1B2C; /* butcher red, matches the rare doneness band */
+  --smoke: #8A7B6E; /* muted taupe for dimmed/secondary */
+  --gold: #D9A03F; /* highlight */
   --white: #FFFFFF;
-  --red: #85000F;
-  --orange: #FF3500;
-  --brown: #422523;
-  --silver: #898686;
+  --black: #000000;
 }
 
 /*
@@ -350,23 +298,18 @@ input, textarea {
  * ANCHOR Responsive Margins
 ------------------------------------------------*/
 :root {
-  --margin-outside: var(--size-100);
-  --margin-vertical-large: var(--size-600);
-  --margin-vertical-small: var(--size-100);
+  --margin-outside: var(--size-070);
+  --margin-vertical-large: var(--size-200);
+  --margin-vertical-small: var(--size-070);
 }
 @media screen and (min-width: 48rem) {
   :root {
-    --margin-outside: var(--size-400);
+    --margin-outside: var(--size-100);
   }
 }
 @media screen and (min-width: 64rem) {
   :root {
-    --margin-outside: var(--size-600);
-  }
-}
-@media screen and (min-width: 77rem) {
-  :root {
-    --margin-outside: var(--size-700);
+    --margin-outside: var(--size-200);
   }
 }
 :root {
@@ -389,18 +332,12 @@ input, textarea {
 	@package tender-cuts
 
 \*----------------------------------------------*/
-/* Read on every element so the em is worked out at that element's own font size.
-   Herbus text gets --herbus-tracking; anything set in another font sets --tracking: normal. */
-* {
-  letter-spacing: var(--tracking, normal);
-}
-
 body {
-  --tracking: var(--herbus-tracking);
-  background: var(--white);
-  color: var(--black);
-  font-family: var(--font-sans);
-  line-height: 1.3;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.4;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -415,24 +352,792 @@ input {
   outline: none;
 }
 
+:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
 .site {
-  --color-nav: var(--red);
-  --color-nav-text: var(--black);
-  --color-brand: var(--black);
-  --color-band: var(--yellow);
-  --color-main: var(--red);
-  --color-highlight: var(--yellow);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
-  background: var(--color-main);
-}
-.site--alt {
-  --color-nav: var(--blue);
-  --color-band: var(--mint);
-  --color-main: var(--blue);
+  background: var(--paper);
+  color: var(--ink);
 }
 .site__main {
   flex: 1;
+}
+
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package tender-cuts
+
+\*----------------------------------------------*/
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--size-060) var(--size-080);
+  padding: var(--size-070) var(--gutter);
+}
+.header__logo {
+  display: block;
+  text-decoration: none;
+}
+.header__logo-image {
+  display: block;
+  width: auto;
+  height: var(--size-090);
+}
+.header__nav {
+  display: flex;
+  gap: var(--size-080);
+}
+.header__link {
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-condensed);
+  font-weight: 400;
+  font-size: var(--size-070);
+  text-decoration: none;
+}
+.header__link:hover {
+  color: var(--red);
+}
+.header__link.router-link-active {
+  text-decoration: underline;
+}
+
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package tender-cuts
+
+\*----------------------------------------------*/
+.toggle {
+  display: inline-flex;
+}
+.toggle__option {
+  padding: var(--size-030) var(--size-060);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-condensed);
+  font-weight: 400;
+  font-size: var(--size-080);
+  background: none;
+  color: var(--ink);
+}
+.toggle__option--active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package tender-cuts
+
+\*----------------------------------------------*/
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-050);
+  width: 100%;
+  padding: 0;
+  background: none;
+  color: var(--ink);
+  text-align: left;
+  text-decoration: none;
+}
+.tile__image-wrap {
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+.tile__image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.tile__name {
+  font-family: var(--font-acme-condensed);
+  font-weight: 700;
+  font-size: var(--size-070);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.tile:hover, .tile:focus-visible {
+  color: var(--red);
+}
+.tile[draggable=true] {
+  cursor: grab;
+}
+.tile--dimmed, .tile--dimmed:hover {
+  opacity: 0.3;
+  color: var(--ink);
+  cursor: default;
+  pointer-events: none;
+}
+
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package tender-cuts
+
+\*----------------------------------------------*/
+.slot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 3/4;
+  border: 2px dashed var(--smoke);
+}
+.slot__label {
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-skyline);
+  font-weight: 300;
+  font-size: var(--size-100);
+  line-height: var(--display-line-height);
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.slot--ready {
+  border-color: var(--ink);
+}
+.slot--over {
+  border-color: var(--red);
+  border-style: solid;
+}
+.slot--filled {
+  border-style: solid;
+  border-color: var(--ink);
+}
+.slot__link {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: var(--paper);
+}
+.slot__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.slot__name {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--size-060);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-compressed);
+  font-weight: 900;
+  font-size: var(--size-090);
+  line-height: var(--display-line-height);
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+.slot__clear {
+  position: absolute;
+  top: var(--size-050);
+  right: var(--size-050);
+  z-index: 1;
+  padding: 0;
+  font-size: var(--size-080);
+  line-height: 1;
+  color: var(--ink);
+}
+.slot--filled .slot__clear {
+  color: var(--paper);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+.slot__clear:hover {
+  color: var(--red);
+}
+
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package tender-cuts
+
+\*----------------------------------------------*/
+.chip {
+  display: inline-block;
+  padding: var(--size-030) var(--size-060);
+  border: 2px solid var(--red);
+  border-radius: 999px;
+  color: var(--red);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-compressed);
+  font-weight: 700;
+  font-size: var(--size-080);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.chip:hover, .chip:focus-visible {
+  background: var(--red);
+  color: var(--paper);
+}
+
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package tender-cuts
+
+\*----------------------------------------------*/
+.search__input {
+  width: 100%;
+  max-width: 28rem;
+  padding: var(--size-050) 0;
+  border: 0;
+  border-bottom: 2px solid var(--ink);
+  background: none;
+  color: var(--ink);
+  font-size: var(--size-080);
+}
+.search__input::-moz-placeholder {
+  color: var(--smoke);
+}
+.search__input::placeholder {
+  color: var(--smoke);
+}
+
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package tender-cuts
+
+\*----------------------------------------------*/
+.dial {
+  max-width: 30rem;
+  margin-inline: auto;
+}
+.dial__svg {
+  width: 100%;
+  height: auto;
+  touch-action: none;
+  cursor: grab;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.dial__svg:active {
+  cursor: grabbing;
+}
+.dial__svg:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+.dial__band {
+  stroke: var(--paper);
+  stroke-width: 1;
+}
+.dial__stop-label {
+  font-family: var(--font-acme-condensed);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  fill: var(--ink);
+  pointer-events: none;
+}
+.dial__temp {
+  font-family: var(--font-body);
+  fill: var(--ink);
+  pointer-events: none;
+}
+.dial__temp--f {
+  font-size: 12px;
+  font-weight: 700;
+}
+.dial__temp--c {
+  font-size: 10px;
+  font-weight: 400;
+}
+.dial__safe-line {
+  stroke: var(--ink);
+  stroke-width: 3;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+.dial__center {
+  stroke: var(--ink);
+  stroke-width: 2;
+  pointer-events: none;
+}
+.dial__readout {
+  pointer-events: none;
+}
+.dial__degrees-f {
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-compressed);
+  font-weight: 900;
+  font-size: 26px;
+}
+.dial__degrees-c {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+}
+.dial__stop-name {
+  font-family: var(--font-acme-condensed);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.dial__stop-name--look {
+  font-size: 16px;
+}
+.dial__pointer {
+  fill: var(--ink);
+  stroke: var(--paper);
+  stroke-width: 3;
+  pointer-events: none;
+}
+.dial__safe-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-050);
+  margin-top: var(--size-060);
+  font-size: var(--size-070);
+}
+.dial__safe-sample {
+  display: inline-block;
+  width: var(--size-080);
+  height: 3px;
+  background: var(--ink);
+}
+
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package tender-cuts
+
+\*----------------------------------------------*/
+.steps {
+  display: grid;
+  gap: var(--size-100);
+}
+@media screen and (min-width: 48rem) {
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.steps__heading {
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-compressed);
+  font-weight: 800;
+  font-size: var(--size-080);
+  line-height: var(--display-line-height);
+  text-transform: uppercase;
+  margin-bottom: var(--size-060);
+}
+.steps__list {
+  list-style: none;
+  counter-reset: step;
+}
+.steps__step {
+  counter-increment: step;
+  position: relative;
+  padding-left: var(--size-100);
+  margin-bottom: var(--size-060);
+  font-size: var(--size-070);
+  line-height: 1.4;
+}
+.steps__step::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-compressed);
+  font-weight: 900;
+  font-size: var(--size-080);
+  line-height: 1;
+  color: var(--red);
+}
+.steps__term {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-underline-offset: 0.15em;
+}
+.steps__term:hover {
+  color: var(--red);
+}
+
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package tender-cuts
+
+\*----------------------------------------------*/
+.game__slots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--size-070);
+  max-width: 40rem;
+  margin-inline: auto;
+  padding: var(--size-070) var(--gutter) 0;
+}
+@media screen and (min-width: 48rem) {
+  .game__slots {
+    gap: var(--size-100);
+  }
+}
+.game__zone {
+  margin-top: var(--size-100);
+  padding: var(--size-100) var(--gutter) var(--size-200);
+  background: var(--paper-deep);
+  text-align: center;
+}
+.game__chips {
+  margin-bottom: var(--size-100);
+}
+.game__chips-heading {
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-skyline);
+  font-weight: 900;
+  font-size: var(--size-100);
+  line-height: var(--display-line-height);
+  text-transform: uppercase;
+  margin-bottom: var(--size-060);
+}
+.game__chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--size-050);
+}
+.game__toggle {
+  margin-bottom: var(--size-100);
+}
+.game__group {
+  margin-bottom: var(--size-080);
+}
+.game__group-heading {
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-skyline);
+  font-weight: 900;
+  font-size: var(--size-090);
+  line-height: var(--display-line-height);
+  text-transform: uppercase;
+  margin-bottom: var(--size-050);
+}
+.game__words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--size-050) var(--size-080);
+}
+.game__word {
+  padding: var(--size-020) var(--size-040);
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-condensed);
+  font-weight: 700;
+  font-size: var(--size-080);
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.game__word:hover, .game__word:focus-visible {
+  color: var(--red);
+}
+.game__word[draggable=true] {
+  cursor: grab;
+}
+.game__word--dimmed, .game__word--dimmed:hover {
+  opacity: 0.3;
+  color: var(--ink);
+  cursor: default;
+  pointer-events: none;
+}
+
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package tender-cuts
+
+\*----------------------------------------------*/
+.browse {
+  padding: var(--size-070) var(--gutter) var(--size-200);
+}
+.browse__toggle {
+  margin-bottom: var(--size-070);
+}
+.browse__search {
+  margin-bottom: var(--size-100);
+}
+.browse__empty {
+  font-size: var(--size-070);
+  color: var(--smoke);
+}
+.browse__group {
+  margin-bottom: var(--size-100);
+}
+.browse__group-heading {
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-skyline);
+  font-weight: 900;
+  font-size: var(--size-100);
+  line-height: var(--display-line-height);
+  text-transform: uppercase;
+  margin-bottom: var(--size-060);
+}
+.browse__tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--size-060);
+}
+@media screen and (min-width: 27rem) {
+  .browse__tiles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 36rem) {
+  .browse__tiles {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (min-width: 48rem) {
+  .browse__tiles {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--size-070);
+  }
+}
+@media screen and (min-width: 64rem) {
+  .browse__tiles {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package tender-cuts
+
+\*----------------------------------------------*/
+.detail {
+  padding: var(--size-070) var(--gutter) var(--size-200);
+}
+.detail__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--size-070);
+  margin-bottom: var(--size-100);
+}
+.detail__name {
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-skyline);
+  font-weight: 900;
+  font-size: var(--size-200);
+  line-height: var(--display-line-height);
+  text-transform: uppercase;
+}
+@media screen and (min-width: 48rem) {
+  .detail__name {
+    font-size: var(--size-300);
+  }
+}
+.detail__animal {
+  font-family: var(--font-acme-condensed);
+  font-weight: 700;
+  font-size: var(--size-070);
+  text-transform: uppercase;
+  color: var(--red);
+  margin-top: var(--size-050);
+}
+.detail__image {
+  width: 10rem;
+}
+@media screen and (min-width: 48rem) {
+  .detail__image {
+    width: 14rem;
+  }
+}
+.detail__section {
+  margin-bottom: var(--size-200);
+}
+.detail__section-heading {
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-compressed);
+  font-weight: 800;
+  font-size: var(--size-090);
+  line-height: var(--display-line-height);
+  text-transform: uppercase;
+  margin-bottom: var(--size-060);
+}
+.detail__fat {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--size-050) var(--size-070);
+}
+.detail__fat .detail__section-heading {
+  grid-column: 1/-1;
+  margin-bottom: 0;
+}
+.detail__fat-value {
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-compressed);
+  font-weight: 900;
+  font-size: var(--size-100);
+  line-height: 1;
+  color: var(--red);
+}
+.detail__fat-image {
+  max-width: 18rem;
+}
+.detail__facts {
+  display: flex;
+  gap: var(--size-100);
+}
+.detail__fact-label {
+  font-family: var(--font-acme-condensed);
+  font-weight: 700;
+  font-size: var(--size-060);
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.detail__fact-value {
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-compressed);
+  font-weight: 700;
+  font-size: var(--size-080);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.detail__equipment {
+  -moz-columns: 1;
+       columns: 1;
+}
+@media screen and (min-width: 36rem) {
+  .detail__equipment {
+    -moz-columns: 2;
+         columns: 2;
+  }
+}
+.detail__equipment-item {
+  font-size: var(--size-070);
+  padding: var(--size-030) 0;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+}
+.detail__equipment-item::before {
+  content: "— ";
+  color: var(--red);
+}
+.detail__subgroup {
+  margin-bottom: var(--size-100);
+}
+.detail__subgroup-heading {
+  font-family: var(--font-acme-condensed);
+  font-weight: 700;
+  font-size: var(--size-070);
+  text-transform: uppercase;
+  margin-bottom: var(--size-050);
+}
+.detail__tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--size-060);
+}
+@media screen and (min-width: 27rem) {
+  .detail__tiles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 36rem) {
+  .detail__tiles {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (min-width: 48rem) {
+  .detail__tiles {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--size-070);
+  }
+}
+@media screen and (min-width: 64rem) {
+  .detail__tiles {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/*----------------------------------------------*\
+    VARIABLES
+	=========
+
+	@package tender-cuts
+
+\*----------------------------------------------*/
+.glossary {
+  padding: var(--size-070) var(--gutter) var(--size-200);
+  max-width: 64rem;
+}
+.glossary__title {
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-skyline);
+  font-weight: 900;
+  font-size: var(--size-200);
+  line-height: var(--display-line-height);
+  text-transform: uppercase;
+  margin-bottom: var(--size-100);
+}
+@media screen and (min-width: 48rem) {
+  .glossary__title {
+    font-size: var(--size-300);
+  }
+}
+.glossary__entry {
+  display: grid;
+  gap: var(--size-030);
+  padding: var(--size-060) var(--size-060);
+  margin-inline: calc(var(--size-060) * -1);
+  scroll-margin-top: var(--size-100);
+}
+@media screen and (min-width: 36rem) {
+  .glossary__entry {
+    grid-template-columns: 14rem 1fr;
+    gap: var(--size-070);
+  }
+}
+.glossary__entry:target {
+  background: var(--gold);
+}
+.glossary__term {
+  font-family: var(--font-display);
+  font-stretch: var(--stretch-compressed);
+  font-weight: 800;
+  font-size: var(--size-080);
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.glossary__definition {
+  font-size: var(--size-070);
+  line-height: 1.4;
 }/*# sourceMappingURL=main.css.map */

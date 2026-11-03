@@ -3,16 +3,28 @@
 .search {
 	&__input {
 		width: 100%;
-		max-width: 28rem;
-		padding: var(--size-050) 0;
+		padding: var(--size-030) 0;
 		border: 0;
 		border-bottom: 2px solid var(--ink);
 		background: none;
 		color: var(--ink);
-		font-size: var(--size-080);
+		font-family: var(--font-clarendon);
+		font-weight: 400;
+		font-size: var(--size-090);
+		line-height: 1.1;
 
 		&::placeholder {
 			color: var(--smoke);
 		}
+	}
+}
+
+// On the orange methods page the search inverts to white.
+.browse--methods .search__input {
+	border-bottom-color: var(--white);
+	color: var(--white);
+
+	&::placeholder {
+		color: var(--white);
 	}
 }

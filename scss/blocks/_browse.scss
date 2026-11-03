@@ -20,33 +20,76 @@
 		margin-bottom: var(--size-100);
 	}
 
+	// Animal group headings (Beef, Pork, …) styled like the Method/Cut
+	// menu-selector labels: Job Clarendon, now bigger and bold.
 	&__group-heading {
-		font-family: var(--font-display);
-		font-stretch: var(--stretch-skyline);
-		font-weight: 900;
+		font-family: var(--font-clarendon);
+		font-weight: 700;
 		font-size: var(--size-100);
-		line-height: var(--display-line-height);
-		text-transform: uppercase;
+		line-height: 1.1;
+		text-transform: none;
+		color: var(--ink);
 		margin-bottom: var(--size-060);
 	}
 
 	&__tiles {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: var(--size-060);
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		// More vertical spacing to differentiate the rows.
+		gap: var(--size-200) var(--size-060);
+		// Every card in a row is the same height, so they line up.
+		align-items: stretch;
 
-		@media screen and (min-width: c.$x-small) {
-			grid-template-columns: repeat(3, 1fr);
-		}
 		@media screen and (min-width: c.$small) {
-			grid-template-columns: repeat(4, 1fr);
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 		@media screen and (min-width: c.$medium) {
-			grid-template-columns: repeat(5, 1fr);
-			gap: var(--size-070);
-		}
-		@media screen and (min-width: c.$large) {
-			grid-template-columns: repeat(6, 1fr);
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+			gap: var(--size-200) var(--size-070);
 		}
 	}
+
+	// No white frame — the image floats on the orange with padding, and
+	// there's more room between the image and the label.
+	&__tiles .tile__image-wrap {
+		background: none;
+		padding: var(--size-040);
+		margin-bottom: var(--size-040);
+	}
+
+	&__tiles .tile {
+		height: 100%;
+	}
+
+	&__tiles .tile__name {
+		background: rgb(255 255 255 / 0.3);
+		color: var(--white);
+	}
+
+	&__tiles .tile:hover .tile__name,
+	&__tiles .tile:focus-visible .tile__name {
+		background: var(--black);
+		color: var(--white);
+	}
 }
+
+// All cuts: white page, each animal group is an orange container that
+// extends edge to edge (the .browse side padding is cancelled out). The
+// heading sits above the orange, on the white page.
+.browse--cuts {
+	.browse__group-body {
+		background: var(--orange);
+		padding: var(--size-060) var(--gutter);
+		margin-inline: calc(var(--gutter) * -1);
+	}
+
+	.browse__group-heading {
+		color: var(--black);
+	}
+}
+
+// All methods: orange page, cards stay white.
+.browse--methods {
+	background: var(--orange);
+}
+

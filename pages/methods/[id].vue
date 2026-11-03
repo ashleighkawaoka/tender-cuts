@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { animals, glossary, getMethod, cutsForMethod } = await useContent()
+const { urlFor } = useImageUrl()
 
 const route = useRoute()
 const method = computed(() => getMethod(route.params.id as string))
@@ -12,6 +13,9 @@ const suitedCutGroups = computed(() =>
   groupCutsByAnimal(cutsForMethod(method.value!.id), animals.value),
 )
 
+// Method artwork is SVG: serve as-is (the pipeline can't rasterize it).
+const imageSrc = computed(() => urlFor(method.value?.image)?.ignoreImageParams().url() ?? '')
+
 useHead({ title: computed(() => method.value?.name) })
 </script>
 
@@ -21,7 +25,7 @@ useHead({ title: computed(() => method.value?.name) })
       <div class="detail__heading">
         <h1 class="detail__name">{{ method.name }}</h1>
       </div>
-      <img class="detail__image" :src="`/images/${method.image}`" :alt="method.name" />
+      <img v-if="imageSrc" class="detail__image" :src="imageSrc" :alt="method.name" />
     </header>
 
     <section class="detail__section" aria-label="Heat">
