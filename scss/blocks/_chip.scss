@@ -1,0 +1,21 @@
+@use "../components" as c;
+
+.chip {
+	display: inline-block;
+	padding: var(--size-030) var(--size-060);
+	border: 2px solid var(--red);
+	border-radius: 999px;
+	color: var(--red);
+	font-family: var(--font-display);
+	font-stretch: var(--stretch-compressed);
+	font-weight: 700;
+	font-size: var(--size-080);
+	text-transform: uppercase;
+	text-decoration: none;
+
+	&:hover,
+	&:focus-visible {
+		background: var(--red);
+		color: var(--paper);
+	}
+}

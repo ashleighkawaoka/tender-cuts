@@ -5,13 +5,18 @@ export default defineNuxtConfig({
   css: ['~/scss/main.scss'],
   app: {
     head: {
-      // TODO: replace with your own Typekit kit for this site, or remove
-      link: [{ rel: 'stylesheet', href: 'https://use.typekit.net/eyr6ctn.css' }],
+      // Acme Gothic (Typekit)
+      link: [{ rel: 'stylesheet', href: 'https://use.typekit.net/xje3uvp.css' }],
+    },
+  },
+  vite: {
+    optimizeDeps: {
+      // Pre-bundle so runtime discovery doesn't force page reloads in dev
+      include: ['@sanity/client', '@vue/devtools-core'],
     },
   },
   sanity: {
-    // TODO: replace with the projectId from tender-cuts-sanity/sanity.config.ts
-    projectId: 'your-project-id',
+    projectId: 'zn7a2em4',
     dataset: 'production',
     apiVersion: '2026-11-03',
     useCdn: false, // new data shows up right away

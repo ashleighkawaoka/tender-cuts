@@ -1,25 +1,10 @@
-// Color themes. Every block reads these variables instead of fixed colors,
-// so switching the modifier on .site recolors the whole page.
 .site {
-	--color-nav: var(--red);
-	--color-nav-text: var(--black);
-	--color-brand: var(--black);
-	--color-band: var(--yellow);
-	--color-main: var(--red);
-	--color-highlight: var(--yellow);
-
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 	min-height: 100dvh;
-	background: var(--color-main);
-
-	// Example theme modifier: add site--alt to .site to recolor every block
-	&--alt {
-		--color-nav: var(--blue);
-		--color-band: var(--mint);
-		--color-main: var(--blue);
-	}
+	background: var(--paper);
+	color: var(--ink);
 
 	&__main {
 		flex: 1;

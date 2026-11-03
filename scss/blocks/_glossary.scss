@@ -1,0 +1,52 @@
+@use "../components" as c;
+
+.glossary {
+	padding: var(--size-070) var(--gutter) var(--size-200);
+	max-width: 64rem;
+
+	&__title {
+		font-family: var(--font-display);
+		font-stretch: var(--stretch-skyline);
+		font-weight: 900;
+		font-size: var(--size-200);
+		line-height: var(--display-line-height);
+		text-transform: uppercase;
+		margin-bottom: var(--size-100);
+
+		@media screen and (min-width: c.$medium) {
+			font-size: var(--size-300);
+		}
+	}
+
+	&__entry {
+		display: grid;
+		gap: var(--size-030);
+		padding: var(--size-060) var(--size-060);
+		margin-inline: calc(var(--size-060) * -1);
+		scroll-margin-top: var(--size-100);
+
+		@media screen and (min-width: c.$small) {
+			grid-template-columns: 14rem 1fr;
+			gap: var(--size-070);
+		}
+
+		// Highlight on arrival from a homepage chip or a step link
+		&:target {
+			background: var(--gold);
+		}
+	}
+
+	&__term {
+		font-family: var(--font-display);
+		font-stretch: var(--stretch-compressed);
+		font-weight: 800;
+		font-size: var(--size-080);
+		line-height: 1.1;
+		text-transform: uppercase;
+	}
+
+	&__definition {
+		font-size: var(--size-070);
+		line-height: 1.4;
+	}
+}

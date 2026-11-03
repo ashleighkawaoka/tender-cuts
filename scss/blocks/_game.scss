@@ -1,0 +1,100 @@
+@use "../components" as c;
+
+.game {
+	&__slots {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--size-070);
+		max-width: 40rem;
+		margin-inline: auto;
+		padding: var(--size-070) var(--gutter) 0;
+
+		@media screen and (min-width: c.$medium) {
+			gap: var(--size-100);
+		}
+	}
+
+	// The zone under the slots: chips, view toggle, and the type selector
+	&__zone {
+		margin-top: var(--size-100);
+		padding: var(--size-100) var(--gutter) var(--size-200);
+		background: var(--paper-deep);
+		text-align: center;
+	}
+
+	&__chips {
+		margin-bottom: var(--size-100);
+	}
+
+	&__chips-heading {
+		font-family: var(--font-display);
+		font-stretch: var(--stretch-skyline);
+		font-weight: 900;
+		font-size: var(--size-100);
+		line-height: var(--display-line-height);
+		text-transform: uppercase;
+		margin-bottom: var(--size-060);
+	}
+
+	&__chips-list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--size-050);
+	}
+
+	&__toggle {
+		margin-bottom: var(--size-100);
+	}
+
+	&__group {
+		margin-bottom: var(--size-080);
+	}
+
+	&__group-heading {
+		font-family: var(--font-display);
+		font-stretch: var(--stretch-skyline);
+		font-weight: 900;
+		font-size: var(--size-090);
+		line-height: var(--display-line-height);
+		text-transform: uppercase;
+		margin-bottom: var(--size-050);
+	}
+
+	// Type-only buttons: no images until one is chosen
+	&__words {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--size-050) var(--size-080);
+	}
+
+	&__word {
+		padding: var(--size-020) var(--size-040);
+		font-family: var(--font-display);
+		font-stretch: var(--stretch-condensed);
+		font-weight: 700;
+		font-size: var(--size-080);
+		line-height: 1.1;
+		text-transform: uppercase;
+		color: var(--ink);
+
+		&:hover,
+		&:focus-visible {
+			color: var(--red);
+		}
+
+		&[draggable="true"] {
+			cursor: grab;
+		}
+
+		// Dimmed words are locked: visible but no drag, tap, focus, or hover.
+		&--dimmed,
+		&--dimmed:hover {
+			opacity: 0.3;
+			color: var(--ink);
+			cursor: default;
+			pointer-events: none;
+		}
+	}
+}

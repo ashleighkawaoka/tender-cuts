@@ -1,0 +1,52 @@
+@use "../components" as c;
+
+.browse {
+	padding: var(--size-070) var(--gutter) var(--size-200);
+
+	&__toggle {
+		margin-bottom: var(--size-070);
+	}
+
+	&__search {
+		margin-bottom: var(--size-100);
+	}
+
+	&__empty {
+		font-size: var(--size-070);
+		color: var(--smoke);
+	}
+
+	&__group {
+		margin-bottom: var(--size-100);
+	}
+
+	&__group-heading {
+		font-family: var(--font-display);
+		font-stretch: var(--stretch-skyline);
+		font-weight: 900;
+		font-size: var(--size-100);
+		line-height: var(--display-line-height);
+		text-transform: uppercase;
+		margin-bottom: var(--size-060);
+	}
+
+	&__tiles {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--size-060);
+
+		@media screen and (min-width: c.$x-small) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		@media screen and (min-width: c.$small) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+		@media screen and (min-width: c.$medium) {
+			grid-template-columns: repeat(5, 1fr);
+			gap: var(--size-070);
+		}
+		@media screen and (min-width: c.$large) {
+			grid-template-columns: repeat(6, 1fr);
+		}
+	}
+}

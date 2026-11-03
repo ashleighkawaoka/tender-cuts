@@ -1,0 +1,58 @@
+@use "../components" as c;
+
+.steps {
+	display: grid;
+	gap: var(--size-100);
+
+	@media screen and (min-width: c.$medium) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	&__heading {
+		font-family: var(--font-display);
+		font-stretch: var(--stretch-compressed);
+		font-weight: 800;
+		font-size: var(--size-080);
+		line-height: var(--display-line-height);
+		text-transform: uppercase;
+		margin-bottom: var(--size-060);
+	}
+
+	&__list {
+		list-style: none;
+		counter-reset: step;
+	}
+
+	&__step {
+		counter-increment: step;
+		position: relative;
+		padding-left: var(--size-100);
+		margin-bottom: var(--size-060);
+		font-size: var(--size-070);
+		line-height: 1.4;
+
+		&::before {
+			content: counter(step);
+			position: absolute;
+			left: 0;
+			top: 0;
+			font-family: var(--font-display);
+			font-stretch: var(--stretch-compressed);
+			font-weight: 900;
+			font-size: var(--size-080);
+			line-height: 1;
+			color: var(--red);
+		}
+	}
+
+	&__term {
+		color: inherit;
+		text-decoration: underline;
+		text-decoration-color: var(--red);
+		text-underline-offset: 0.15em;
+
+		&:hover {
+			color: var(--red);
+		}
+	}
+}

@@ -8,6 +8,7 @@ useHead({
 <template>
   <div class="site">
     <a href="#main" class="screen-reader-text">Skip to content</a>
+    <AppHeader />
     <main id="main" class="site__main">
       <NuxtPage />
     </main>

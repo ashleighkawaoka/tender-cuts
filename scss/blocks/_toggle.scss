@@ -1,0 +1,20 @@
+@use "../components" as c;
+
+.toggle {
+	display: inline-flex;
+
+	&__option {
+		padding: var(--size-030) var(--size-060);
+		font-family: var(--font-display);
+		font-stretch: var(--stretch-condensed);
+		font-weight: 400;
+		font-size: var(--size-080);
+		background: none;
+		color: var(--ink);
+
+		&--active {
+			background: var(--ink);
+			color: var(--paper);
+		}
+	}
+}

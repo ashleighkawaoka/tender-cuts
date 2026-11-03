@@ -1,0 +1,42 @@
+@use "../components" as c;
+
+.header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: var(--size-060) var(--size-080);
+	padding: var(--size-070) var(--gutter);
+
+	&__logo {
+		display: block;
+		text-decoration: none;
+	}
+
+	&__logo-image {
+		display: block;
+		width: auto;
+		height: var(--size-090);
+	}
+
+	&__nav {
+		display: flex;
+		gap: var(--size-080);
+	}
+
+	&__link {
+		font-family: var(--font-display);
+		font-stretch: var(--stretch-condensed);
+		font-weight: 400;
+		font-size: var(--size-070);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--red);
+		}
+
+		&.router-link-active {
+			text-decoration: underline;
+		}
+	}
+}

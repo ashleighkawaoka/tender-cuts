@@ -4,71 +4,20 @@
 
 	@package tender-cuts
 
+	Job Clarendon (testing) — one variable font covers
+	every width and weight:
+	  wdth 25 = Skyline, ~31 = Compressed, ~37.5 = Extra Condensed, 50 = Condensed
+	  wght 1 = Hairline … 400 = Regular … 900 = Black
+	Files live in public/fonts. Replace with licensed
+	versions before launch.
+
 \*----------------------------------------------*/
 
-/* Platform, files live in public/fonts */
 @font-face {
-	font-family: "Platform";
-	src: url("/fonts/Platform-Hairline.otf") format("opentype");
-	font-weight: 100;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: "Platform";
-	src: url("/fonts/Platform-Regular.otf") format("opentype");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: "Platform";
-	src: url("/fonts/Platform-Medium.otf") format("opentype");
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: "Platform";
-	src: url("/fonts/Platform-Bold.otf") format("opentype");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-
-/* Albuquerque (licensed) */
-@font-face {
-	font-family: "Albuquerque";
-	src: url("/fonts/Albuquerque-Regular.ttf") format("truetype");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-/* Herbus (trial) — replace with a licensed version before launch */
-@font-face {
-	font-family: "Herbus";
-	src: url("/fonts/TRIAL_OTT_Herbus-Regular.ttf") format("truetype");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: "Herbus";
-	src: url("/fonts/TRIAL_OTT_Herbus-Medium.ttf") format("truetype");
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: "Herbus";
-	src: url("/fonts/TRIAL_OTT_Herbus-Bold.ttf") format("truetype");
-	font-weight: 700;
+	font-family: "Job Clarendon";
+	src: url("/fonts/JobClarendonVariable[wdth,wght]-Testing.ttf") format("truetype-variations");
+	font-weight: 1 900;
+	font-stretch: 25% 50%;
 	font-style: normal;
 	font-display: swap;
 }

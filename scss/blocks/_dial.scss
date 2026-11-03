@@ -1,0 +1,117 @@
+@use "../components" as c;
+
+.dial {
+	max-width: 30rem;
+	margin-inline: auto;
+
+	&__svg {
+		width: 100%;
+		height: auto;
+		touch-action: none;
+		cursor: grab;
+		user-select: none;
+
+		&:active {
+			cursor: grabbing;
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--red);
+			outline-offset: 2px;
+		}
+	}
+
+	&__band {
+		stroke: var(--paper);
+		stroke-width: 1;
+	}
+
+	&__stop-label {
+		font-family: var(--font-acme-condensed);
+		font-weight: 700;
+		font-size: 13px;
+		text-transform: uppercase;
+		fill: var(--ink);
+		pointer-events: none;
+	}
+
+	&__temp {
+		font-family: var(--font-body);
+		fill: var(--ink);
+		pointer-events: none;
+
+		&--f {
+			font-size: 12px;
+			font-weight: 700;
+		}
+
+		&--c {
+			font-size: 10px;
+			font-weight: 400;
+		}
+	}
+
+	&__safe-line {
+		stroke: var(--ink);
+		stroke-width: 3;
+		stroke-linecap: round;
+		pointer-events: none;
+	}
+
+	&__center {
+		stroke: var(--ink);
+		stroke-width: 2;
+		pointer-events: none;
+	}
+
+	&__readout {
+		pointer-events: none;
+	}
+
+	&__degrees-f {
+		font-family: var(--font-display);
+		font-stretch: var(--stretch-compressed);
+		font-weight: 900;
+		font-size: 26px;
+	}
+
+	&__degrees-c {
+		font-family: var(--font-body);
+		font-weight: 400;
+		font-size: 13px;
+	}
+
+	&__stop-name {
+		font-family: var(--font-acme-condensed);
+		font-weight: 700;
+		font-size: 12px;
+		text-transform: uppercase;
+
+		&--look {
+			font-size: 16px;
+		}
+	}
+
+	&__pointer {
+		fill: var(--ink);
+		stroke: var(--paper);
+		stroke-width: 3;
+		pointer-events: none;
+	}
+
+	&__safe-legend {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--size-050);
+		margin-top: var(--size-060);
+		font-size: var(--size-070);
+	}
+
+	&__safe-sample {
+		display: inline-block;
+		width: var(--size-080);
+		height: 3px;
+		background: var(--ink);
+	}
+}

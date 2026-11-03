@@ -1,0 +1,18 @@
+@use "../components" as c;
+
+.search {
+	&__input {
+		width: 100%;
+		max-width: 28rem;
+		padding: var(--size-050) 0;
+		border: 0;
+		border-bottom: 2px solid var(--ink);
+		background: none;
+		color: var(--ink);
+		font-size: var(--size-080);
+
+		&::placeholder {
+			color: var(--smoke);
+		}
+	}
+}
